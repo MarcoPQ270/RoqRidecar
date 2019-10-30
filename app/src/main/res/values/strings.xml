@@ -1,0 +1,15 @@
+<resources>
+    //pantalla principal
+    <string name="app_name">ROQ</string>
+    <string name="edtnocontrol">Numero de control</string>
+    <string name="edtnip">Nip</string>
+    <string name="btniniciarsesion">Iniciar Sesion</string>
+    <string name="btnregistro">Registrar</string>
+    //pantalla de registro
+    <string name="title_activity_main_registro">MainActivityRegistro</string>
+    <string name="texttituloregistro">Registro de usuarios</string>
+    <string name="edtnombre">Nombre</string>
+    <string name="edtcarrera">Carrera</string>
+    <string name="edtmunicipio">Municipio</string>
+    <string name="btngurdarregistro">Guardar informacion</string>
+</resources>
