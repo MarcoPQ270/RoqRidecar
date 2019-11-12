@@ -1,15 +1,20 @@
 <resources>
     //pantalla principal
-    <string name="app_name">ROQ</string>
+    <string name="app_name">RoqRide</string>
     <string name="edtnocontrol">Numero de control</string>
     <string name="edtnip">Nip</string>
-    <string name="btniniciarsesion">Iniciar Sesion</string>
-    <string name="btnregistro">Registrar</string>
+    <string name="btniniciarsesion">Iniciar Sesión</string>
+    <string name="btnregistro">Registrarme</string>
     //pantalla de registro
     <string name="title_activity_main_registro">MainActivityRegistro</string>
     <string name="texttituloregistro">Registro de usuarios</string>
     <string name="edtnombre">Nombre</string>
     <string name="edtcarrera">Carrera</string>
+    <string name="edtmail">Correo Electronico</string>
     <string name="edtmunicipio">Municipio</string>
+    <string name="edtconfirmanip">Confirma nip</string>
     <string name="btngurdarregistro">Guardar informacion</string>
+    <string name="title_activity_recyclercrearviaje">Recyclercrearviaje</string>
+    <string name="btnaceptar">Aceptar</string>
+    <string name="btnrechazar">Rechazar</string>
 </resources>

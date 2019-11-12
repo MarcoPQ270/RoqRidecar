@@ -48,10 +48,10 @@ class AdapterRViaje internal constructor(context: Context):
 
     inner class estviewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         val card= itemView.findViewById<ConstraintLayout>(R.id.itemCard)
-        val nombre= itemView.findViewById<TextView>(R.id.item_nom)
-        val semestre=itemView.findViewById<TextView>(R.id.item_semestre)
-        val carrera=itemView.findViewById<TextView>(R.id.item_carrera)
-        val edad=itemView.findViewById<TextView>(R.id.item_edad)
+        val nombre= itemView.findViewById<TextView>(R.id.item_destino)
+        val semestre=itemView.findViewById<TextView>(R.id.item_horasal)
+        val carrera=itemView.findViewById<TextView>(R.id.item_nombre)
+        val edad=itemView.findViewById<TextView>(R.id.item_nocontrol)
     }
 }
 

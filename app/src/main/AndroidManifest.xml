@@ -9,6 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainRegistro"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.roq.MainRegistro" />
+        </activity>
+        <activity android:name=".Activitycrearviaje" />
+        <activity android:name=".ActivityDetallevieje" />
+        <activity
+            android:name=".RecyclerCrearViaje"
+            android:label="@string/title_activity_recyclercrearviaje"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".RecyclerViajes" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -23,17 +37,8 @@
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.roq.MainActivityPerfil"/>
+                android:value="com.example.roq.MainActivityPerfil" />
         </activity>
-        <activity
-            android:name=".MainRegistro"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.roq.MainRegistro" />
-        </activity>
-
     </application>
 
 </manifest>

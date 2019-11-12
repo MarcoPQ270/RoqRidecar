@@ -2,6 +2,7 @@ package com.example.roq
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roq.adapters.AdapterRViaje
@@ -24,8 +25,10 @@ class RecyclerViajes : AppCompatActivity() {
         val recycler = findViewById<RecyclerView>(R.id.recyclerest)
         val adapter=AdapterRViaje(this)
         recycler.adapter=adapter
+
+        //SELECCCIONAMOS CMO QUEREMOS QUE SE MUESTRE LA CARD DEL RECYCKERVIEW
         recycler.layoutManager = LinearLayoutManager(this)
-        //recycler.layoutManager=GridLayoutManager(this,2)
+        //recycler.layoutManager= GridLayoutManager(this,2)
         adapter.setDataToList(lista)
     }
 }
