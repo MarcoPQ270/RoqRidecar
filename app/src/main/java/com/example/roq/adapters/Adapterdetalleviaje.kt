@@ -23,24 +23,25 @@ RecyclerView.Adapter<Adapterdetalleviaje.estdetalleviewholder>(){
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): estdetalleviewholder {
-       val itemview=inflater.inflate(R.layout.activity_detallevieje,parent, false)
+       val itemview=inflater.inflate(R.layout.recycler_item_detalleviaje,parent, false)
         return estdetalleviewholder(itemview)
     }
     override fun getItemCount(): Int {
         return ListaEstdetalle.size
     }
     override fun onBindViewHolder(holder: estdetalleviewholder, position: Int) {
-     holder.nombre.text=ListaEstdetalle.get(position).nombree
-     holder.nocontrol.text=ListaEstdetalle.get(position).nocon
-     holder.carrera.text=ListaEstdetalle.get(position).carr
-     holder.semestre.text=ListaEstdetalle.get(position).semes
+        holder.nombre.text=ListaEstdetalle.get(position).nombree+""
+     holder.nocontrol.text=ListaEstdetalle.get(position).nocon+""
+     holder.carrera.text=ListaEstdetalle.get(position).carr+""
+     holder.semestre.text=ListaEstdetalle.get(position).semes+""
+
     }
     inner class estdetalleviewholder(itemview: View):RecyclerView.ViewHolder(itemview) {
         val card = itemview.findViewById<ConstraintLayout>(R.id.itemCarddetalle)
-        val nombre = itemview.findViewById<TextView>(R.id.item_nombre)
-        val nocontrol=itemview.findViewById<TextView>(R.id.item_nocontrol)
-        val carrera=itemview.findViewById<TextView>(R.id.item_carrera)
-        val semestre=itemview.findViewById<TextView>(R.id.item_semestre)
+        val nombre = itemview.findViewById<TextView>(R.id.item_nombredetalleest)
+        val nocontrol=itemview.findViewById<TextView>(R.id.item_nocontroldetalle)
+        val carrera=itemview.findViewById<TextView>(R.id.item_carreradetalle)
+        val semestre=itemview.findViewById<TextView>(R.id.item_semestredetalle)
         val btnrechazar=itemview.findViewById<Button>(R.id.btnrechazarpas)
         val brnaceptar=itemview.findViewById<Button>(R.id.btnaceptarpas)
     }

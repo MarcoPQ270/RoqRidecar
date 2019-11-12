@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/item_nombre"
+        android:id="@+id/item_nombredetalleest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
@@ -41,7 +41,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/item_nocontrol"
+        android:id="@+id/item_nocontroldetalle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -50,10 +50,10 @@
         app:layout_constraintHorizontal_bias="0.127"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_nombre" />
+        app:layout_constraintTop_toBottomOf="@+id/item_nombredetalleest" />
 
     <TextView
-        android:id="@+id/item_carrera"
+        android:id="@+id/item_carreradetalle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -62,10 +62,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.127"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_nocontrol" />
+        app:layout_constraintTop_toBottomOf="@+id/item_nocontroldetalle" />
 
     <TextView
-        android:id="@+id/item_semestre"
+        android:id="@+id/item_semestredetalle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -74,30 +74,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.127"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_carrera" />
+        app:layout_constraintTop_toBottomOf="@+id/item_carreradetalle" />
 
     <Button
         android:id="@+id/btnaceptarpas"
         android:layout_width="96dp"
         android:layout_height="49dp"
-        android:background="#4caf50"
-        android:textColor="#ffffff"
-        android:layout_marginStart="143dp"
-        android:layout_marginLeft="143dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="27dp"
         android:layout_marginRight="27dp"
+        android:background="#4caf50"
         android:text="@string/btnaceptar"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/item_nombre"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnrechazarpas"
         android:layout_width="95dp"
         android:layout_height="48dp"
-        android:layout_marginStart="143dp"
-        android:layout_marginLeft="143dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="27dp"
         android:layout_marginRight="27dp"
@@ -107,8 +104,10 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/item_carrera"
-        app:layout_constraintTop_toBottomOf="@+id/btnaceptarpas" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnaceptarpas"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
