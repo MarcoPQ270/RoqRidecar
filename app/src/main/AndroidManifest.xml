@@ -17,8 +17,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.roq.MainRegistro" />
         </activity>
-        <activity android:name=".Activitycrearviaje" />
-        <activity android:name=".ActivityDetallevieje" />
         <activity
             android:name=".RecyclerCrearViaje"
             android:label="@string/title_activity_recyclercrearviaje"
@@ -38,6 +36,22 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.roq.MainActivityPerfil" />
+        </activity>
+        <activity
+            android:name=".ActivityDetallevieje"
+            android:parentActivityName=".RecyclerViajes"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.roq.RecyclerCrearViaje" />
+        </activity>
+        <activity
+            android:name=".Activitycrearviaje"
+            android:parentActivityName=".RecyclerViajes"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.roq.RecyclerCrearViaje" />
         </activity>
     </application>
 

@@ -10,10 +10,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roq.ActivityDetallevieje
-import com.example.roq.MainActivity
-import com.example.roq.MainActivityPerfil
 import com.example.roq.R
-import com.example.roq.dataclass.Estudiantes
 import com.example.roq.dataclass.ModelCviaje
 
 class AdapterCviaje internal constructor(context: Context): RecyclerView.Adapter<AdapterCviaje.CviajeviewHolder>(){
@@ -50,9 +47,9 @@ class AdapterCviaje internal constructor(context: Context): RecyclerView.Adapter
 
     inner class CviajeviewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         val card= itemView.findViewById<ConstraintLayout>(R.id.itemCardcviaje)
-        val destino= itemView.findViewById<TextView>(R.id.item_destino)
-        val horasal=itemView.findViewById<TextView>(R.id.item_horasal)
-        val nombre=itemView.findViewById<TextView>(R.id.item_nombre)
-        val nocontrol=itemView.findViewById<TextView>(R.id.item_nocontrol)
+        val destino= itemView.findViewById<TextView>(R.id.item_destinochof)
+        val horasal=itemView.findViewById<TextView>(R.id.item_horasalchof)
+        val nombre=itemView.findViewById<TextView>(R.id.item_nombrechof)
+        val nocontrol=itemView.findViewById<TextView>(R.id.item_nocontrolchof)
     }
 }

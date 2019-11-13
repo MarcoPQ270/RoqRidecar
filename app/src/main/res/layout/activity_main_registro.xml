@@ -43,6 +43,7 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:inputType="number"
+            android:maxLength="8"
             android:drawableLeft="@drawable/ic_action_name"
             android:hint="@string/edtnocontrol" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -69,6 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
+            android:maxLength="40"
             android:drawableLeft="@drawable/ic_action_name"
             android:hint="@string/edtnombre" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -115,6 +117,7 @@
             android:layout_height="wrap_content"
             android:singleLine="true"
             android:inputType="textEmailAddress"
+            android:maxLength="50"
             android:drawableLeft="@drawable/ic_action_mail"
             android:hint="@string/edtmail" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -142,6 +145,7 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_action_nip"
             android:hint="@string/edtnip"
+            android:maxLength="4"
             android:inputType="numberPassword"
             android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -169,6 +173,7 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_action_nip"
             android:hint="@string/edtconfirmanip"
+            android:maxLength="4"
             android:inputType="numberPassword"
             android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>

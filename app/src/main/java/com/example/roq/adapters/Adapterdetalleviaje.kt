@@ -30,10 +30,10 @@ RecyclerView.Adapter<Adapterdetalleviaje.estdetalleviewholder>(){
         return ListaEstdetalle.size
     }
     override fun onBindViewHolder(holder: estdetalleviewholder, position: Int) {
-        holder.nombre.text=ListaEstdetalle.get(position).nombree+""
-     holder.nocontrol.text=ListaEstdetalle.get(position).nocon+""
-     holder.carrera.text=ListaEstdetalle.get(position).carr+""
-     holder.semestre.text=ListaEstdetalle.get(position).semes+""
+         holder.nombre.text=ListaEstdetalle.get(position).nombree+""
+         holder.nocontrol.text=ListaEstdetalle.get(position).nocon+""
+         holder.carrera.text=ListaEstdetalle.get(position).carr+""
+         holder.semestre.text=ListaEstdetalle.get(position).semes+""
 
     }
     inner class estdetalleviewholder(itemview: View):RecyclerView.ViewHolder(itemview) {
