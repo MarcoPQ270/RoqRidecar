@@ -10,28 +10,66 @@ import kotlinx.android.synthetic.main.activity_main_registro.edtnip
 
 class MainRegistro : AppCompatActivity() {
 
+    var control:String=""
+    var nombre:String=""
+    var correo:String=""
+    var nip:String=""
+    var confirmanip:String=""
+    var carrera:String=""
+    var semestre:String=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_registro)
     }
-
-    fun valida(V: View) {
-        if (edtcontrolreg.text!!.isEmpty()) {
-            Toast.makeText(this, "No se agrego el numero de control", Toast.LENGTH_LONG).show()
-            edtcontrolreg.requestFocus()
-        } else if (edtnombrereg.text!!.isEmpty()) {
-            Toast.makeText(this, "No se agrego el nombre", Toast.LENGTH_LONG).show()
-            edtnombrereg.requestFocus()
-        } else if (edtcorreoreg.text!!.isEmpty()) {
-            Toast.makeText(this, "No se agrego el numero de control", Toast.LENGTH_LONG).show()
-            edtcorreoreg.requestFocus()
-        } else if (edtnipconfirma.text!!.isEmpty()) {
-            Toast.makeText(this, "No se agrego el nip de confirmacion", Toast.LENGTH_LONG).show()
-            edtnipconfirma.requestFocus()
-        } else if (edtnipregis.text!!.isEmpty()) {
-            Toast.makeText(this, "No se agrego el nip", Toast.LENGTH_LONG).show()
-            edtnipregis.requestFocus()
+    //metodo para agregar ususarios del registro
+    fun addStudent(v: View) {
+        if (!edtcontrolreg.text!!.isEmpty() && !edtnombrereg.text!!.isEmpty() && !edtcorreoreg.text!!.isEmpty() && !edtnipregis!!.text!!.isEmpty()
+            && !edtnipconfirma!!.text!!.isEmpty() && !edtsemestrereg!!.text!!.isEmpty()) {
+            getValues()
+            val database = adBD(this)
+            val tupla = database.Ejecuta(
+                "INSERT INTO usuarios(nocontrol,nomest,correo,nip,carrera,semestre) VALUES(" +
+                        "'$control'," +
+                        "'$nombre'," +
+                        "'$correo'," +
+                        "'$nip'," +
+                        "'$carrera'," +
+                        "'$semestre')"
+            )
+            if (tupla == 1) {
+                Toast.makeText(this, "Usuario Registrado", Toast.LENGTH_SHORT).show()
+                clearFields()
+            } else {
+                Toast.makeText(this, "Error al Registrar", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            Toast.makeText(this, "No puedes dejar ningún campo de texto vacio", Toast.LENGTH_SHORT).show()
         }
     }
+    fun getValues(){
+        control=edtcontrolreg.text.toString()
+        nombre=edtnombrereg.text.toString()
+        carrera=edtcarrerareg.text.toString()
+        correo=edtcorreoreg.text.toString()
+        nip=edtnipregis.text.toString()
+        confirmanip=edtnipconfirma.text.toString()
+        semestre=edtsemestrereg.text.toString()
+    }
+    fun clearFields(){
+        control=""
+        carrera=""
+        nombre=""
+        correo=""
+        nip=""
+        confirmanip=""
+        semestre=""
+        edtcontrolreg.setText("")
+        edtnombrereg.setText("")
+        edtcorreoreg.setText("")
+        edtcarrerareg.setText("")
+        edtnipregis.setText("")
+        edtnipconfirma.setText("")
+        edtsemestrereg.setText("")
+        edtcontrolreg.requestFocus()
+    }
 }
-

@@ -19,6 +19,7 @@
     <string name="btnrechazar">Rechazar</string>
     //Recycler Crear viaje
     <string name="Sem">Semestre:</string>
+    <string name="Semest">Semestre</string>
     <string name="Destino">Destino:</string>
     <string name="horasal">Hora salida:</string>
     <string name="conductor">Conductor: </string>

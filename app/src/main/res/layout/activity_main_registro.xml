@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:outlineAmbientShadowColor="#891e35"
@@ -41,11 +41,11 @@
             android:id="@+id/edtcontrolreg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"
+            android:drawableLeft="@drawable/ic_action_name"
+            android:hint="@string/edtnocontrol"
             android:inputType="number"
             android:maxLength="8"
-            android:drawableLeft="@drawable/ic_action_name"
-            android:hint="@string/edtnocontrol" />
+            android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -85,7 +85,7 @@
         android:layout_marginRight="35dp"
         android:layout_marginBottom="38dp"
         android:clickable="true"
-        android:onClick="valida"
+        android:onClick="addStudent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -179,7 +179,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edtmunicipio"
+        android:id="@+id/edtcarrera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -187,7 +187,51 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
+        android:outlineAmbientShadowColor="#891e35"
+        android:textColor="@color/colorPrimary"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtnipconfirmareg"/>
+        app:layout_constraintTop_toBottomOf="@+id/edtnipconfirmareg">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtcarrerareg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_action_carr"
+            android:maxLength="20"
+            android:inputType="text"
+            android:singleLine="true"
+            android:hint="@string/edtcarrera" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtsemestre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:outlineAmbientShadowColor="#891e35"
+        android:textColor="@color/colorPrimary"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtcarrera">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtsemestrereg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_action_semestre"
+            android:hint="@string/Semest"
+            android:inputType="number"
+            android:maxLength="2"
+            android:singleLine="true" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
