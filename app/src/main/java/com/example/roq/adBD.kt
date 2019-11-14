@@ -13,7 +13,7 @@ class adBD (context: Context): SQLiteOpenHelper(context,DATABASE,null,1) {
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(
                 "create table usuarios("+
-                        "nocontrol text primary key,"+
+                        "nocontrol INTEGER primary key,"+
                         "nomest text, "+
                         "correo text, "+
                         "nip text, "+
@@ -22,12 +22,13 @@ class adBD (context: Context): SQLiteOpenHelper(context,DATABASE,null,1) {
                 )
         db?.execSQL(
             "create table viaje("+
-                    "iddestino integer primary key,"+
+                    "iddestino integer AUTOINCREMENT primary key,"+
                     "destino text, "+
-                    "hoarsal text, "+
+                    "horas text, "+
                     "nota text, "+
                     "nocontrol text,"+
-                    "numpasajeros integer)"
+                    "numpasajeros integer," +
+                    "FOREIGN KEY(nocontrol) REFERENCES usuarios(nocontrol))"
         )
     }
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {

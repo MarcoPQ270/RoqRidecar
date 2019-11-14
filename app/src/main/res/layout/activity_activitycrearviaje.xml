@@ -33,6 +33,7 @@
         android:textColor="@color/colorPrimary"
         android:textColorHighlight="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView">
@@ -43,6 +44,7 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_action_destino"
             android:hint="@string/Destino"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:maxLength="40"
             android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -58,6 +60,7 @@
         android:layout_marginRight="60dp"
         android:layout_marginBottom="5dp"
         android:clickable="true"
+        android:onClick="addtravel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,6 +81,7 @@
         android:textColorHighlight="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/destino">
 
@@ -105,6 +109,7 @@
         app:layout_constraintStart_toStartOf="parent"
         android:outlineAmbientShadowColor="#891e35"
         android:textColor="@color/colorPrimary"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:textColorHighlight="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"
         app:layout_constraintTop_toBottomOf="@+id/horasal">
@@ -115,6 +120,7 @@
             android:drawableLeft="@drawable/ic_action_nota"
             android:layout_height="wrap_content"
             android:maxLength="100"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="@string/nota" />
     </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
