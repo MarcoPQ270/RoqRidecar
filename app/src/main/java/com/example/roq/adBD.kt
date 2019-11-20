@@ -27,8 +27,7 @@ class adBD (context: Context): SQLiteOpenHelper(context,DATABASE,null,1) {
                     "horas text, "+
                     "nota text, "+
                     "nocontrol text,"+
-                    "numpasajeros integer," +
-                    "FOREIGN KEY(nocontrol) REFERENCES usuarios(nocontrol))"
+                    "nomest text)"
         )
     }
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
