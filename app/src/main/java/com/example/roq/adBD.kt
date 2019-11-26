@@ -13,7 +13,7 @@ class adBD (context: Context): SQLiteOpenHelper(context,DATABASE,null,1) {
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(
                 "create table usuarios("+
-                        "nocontrol INTEGER primary key,"+
+                        "nocontrol text primary key,"+
                         "nomest text, "+
                         "correo text, "+
                         "nip text, "+
@@ -21,12 +21,12 @@ class adBD (context: Context): SQLiteOpenHelper(context,DATABASE,null,1) {
                         "semestre text)"
                 )
         db?.execSQL(
-            "create table viaje("+
-                    "iddestino integer AUTOINCREMENT primary key,"+
-                    "destino text, "+
-                    "horas text, "+
-                    "nota text, "+
-                    "nocontrol text,"+
+            "Create Table viajes(" +
+                    "iddestino INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "destino text, " +
+                    "horas text, " +
+                    "nota text, " +
+                    "nocontrol text," +
                     "nomest text)"
         )
     }

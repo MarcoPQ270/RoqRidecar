@@ -9,50 +9,49 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.example.roq.ActivityDetallevieje
 import com.example.roq.MainActivityPerfil
 import com.example.roq.R
 import com.example.roq.dataclass.Estudiantes
 import com.example.roq.dataclass.ModelCviaje
+import kotlinx.android.synthetic.main.recycler_item_cviaje.view.*
 
-class AdapterRViaje internal constructor(context: Context):
-    RecyclerView.Adapter<AdapterRViaje.estvijviewHolder>() {
-    private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var Listavij= emptyList<ModelCviaje>()
-
-    fun setDataToList(lista:List<ModelCviaje>){
-        this.Listavij=lista
-        notifyDataSetChanged()
-    }
+class AdapterRViaje (private var mListaCviaje:List<ModelCviaje>, private val mContext:Context, private val clickListener:(ModelCviaje)-> Unit):
+    RecyclerView.Adapter<AdapterRViaje.estvijviewHolder>()
+{
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): estvijviewHolder {
-        val itemView=inflater.inflate(R.layout.recycler_item,parent,false)
-        return estvijviewHolder(itemView)
+        val layoutInflater = LayoutInflater.from(mContext)
+        return AdapterRViaje.estvijviewHolder(layoutInflater.inflate(R.layout.recycler_item, parent, false))
     }
-
-    override fun getItemCount(): Int {
-        return Listavij.size
-    }
-
     override fun onBindViewHolder(holder: estvijviewHolder, position: Int) {
-        holder.destino.text=Listavij.get(position).municipio
-        holder.horasal.text=Listavij.get(position).horas
-        holder.nombre.text=Listavij.get(position).nombrec
-        holder.nocontrol.text=Listavij.get(position).nocontrol
-        var intent = Intent(inflater.context, MainActivityPerfil::class.java)
-
-        holder.card.setOnClickListener{
-            val context=inflater.context as Activity
-            context.startActivity(intent)
-        }
-
+        holder.bind(mListaCviaje[position], mContext, clickListener)
     }
 
-    inner class estvijviewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-        val card= itemView.findViewById<ConstraintLayout>(R.id.itemCardchof)
-        val destino= itemView.findViewById<TextView>(R.id.item_destinochof)
-        val horasal=itemView.findViewById<TextView>(R.id.item_horasalchof)
-        val nombre=itemView.findViewById<TextView>(R.id.item_nombrechof)
-        val nocontrol=itemView.findViewById<TextView>(R.id.item_nocontrolchof)
+    override fun getItemCount(): Int = mListaCviaje.size
+
+    fun setTask(ModelCviaje: List<ModelCviaje>) {
+        mListaCviaje = ModelCviaje
+        notifyDataSetChanged()
+    }
+    fun getTasks(): List<ModelCviaje> = mListaCviaje
+
+    class estvijviewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(viaje: ModelCviaje, context: Context, clickListener: (ModelCviaje) -> Unit) {
+
+
+            itemView.item_destinochof.text = viaje.municip.toString()
+            itemView.item_horasalchof.text=viaje.hors.toString()
+            itemView.item_nocontrolchof.text=viaje.nocont.toString()
+            itemView.nombrechof.text=viaje.nomc.toString()
+            itemView.item_nota.text=viaje.note.toString()
+
+            itemView.setOnClickListener {
+                clickListener(viaje)
+                var intent = Intent(context, MainActivityPerfil::class.java)
+                context.startActivity(intent)
+            }
+        }
     }
 }
 

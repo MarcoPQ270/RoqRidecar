@@ -12,44 +12,44 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.roq.ActivityDetallevieje
 import com.example.roq.R
 import com.example.roq.dataclass.ModelCviaje
+import kotlinx.android.synthetic.main.recycler_item_cviaje.view.*
 
-class AdapterCviaje internal constructor(context: Context): RecyclerView.Adapter<AdapterCviaje.CviajeviewHolder>(){
-    private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var ListaCviaje= emptyList<ModelCviaje>()
+class AdapterCviaje(private var mListaCviaje:List<ModelCviaje>, private val mContext:Context, private val clickListener:(ModelCviaje)-> Unit):
+    RecyclerView.Adapter<AdapterCviaje.CviajeViewHolder>()
+{
 
-    fun setDataToList(listaviaje:List<ModelCviaje>){
-        this.ListaCviaje=listaviaje
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CviajeViewHolder{
+        val layoutInflater = LayoutInflater.from(mContext)
+        return CviajeViewHolder(layoutInflater.inflate(R.layout.recycler_item_cviaje, parent, false))
+    }
+    override fun onBindViewHolder(holder: CviajeViewHolder, position: Int) {
+        holder.bind(mListaCviaje[position], mContext, clickListener)
+    }
+    override fun getItemCount(): Int = mListaCviaje.size
+
+    fun setTask(ModelCviaje: List<ModelCviaje>) {
+        mListaCviaje = ModelCviaje
         notifyDataSetChanged()
     }
+    fun getTasks(): List<ModelCviaje> = mListaCviaje
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CviajeviewHolder {
-        val itemView=inflater.inflate(R.layout.recycler_item_cviaje, parent, false)
-        return CviajeviewHolder(itemView)
-    }
 
-    override fun getItemCount(): Int {
-       return ListaCviaje.size
-    }
+    class CviajeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(viaje: ModelCviaje, context: Context, clickListener: (ModelCviaje) -> Unit) {
 
-    override fun onBindViewHolder(holder: CviajeviewHolder, position: Int) {
-        holder.destino.text=ListaCviaje.get(position).municipio
-        holder.horasal.text=ListaCviaje.get(position).horas
-        holder.nombre.text=ListaCviaje.get(position).nombrec
-        holder.nocontrol.text=ListaCviaje.get(position).nocontrol
 
-        var intent = Intent(inflater.context, ActivityDetallevieje::class.java)
+            itemView.item_destinochof.text = viaje.municip.toString()
+            itemView.item_horasalchof.text=viaje.hors.toString()
+            itemView.item_nocontrolchof.text=viaje.nocont.toString()
+            itemView.nombrechof.text=viaje.nomc.toString()
+            itemView.item_nota.text=viaje.note.toString()
 
-        holder.card.setOnClickListener{
-            val context=inflater.context as Activity
-            context.startActivity(intent)
+
+            itemView.setOnClickListener {
+                clickListener(viaje)
+                var intent = Intent(context, ActivityDetallevieje::class.java)
+                context.startActivity(intent)
+            }
         }
-    }
-
-    inner class CviajeviewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
-        val card= itemView.findViewById<ConstraintLayout>(R.id.itemCardcviaje)
-        val destino= itemView.findViewById<TextView>(R.id.item_destinochof)
-        val horasal=itemView.findViewById<TextView>(R.id.item_horasalchof)
-        val nombre=itemView.findViewById<TextView>(R.id.item_nombrechof)
-        val nocontrol=itemView.findViewById<TextView>(R.id.item_nocontrolchof)
     }
 }

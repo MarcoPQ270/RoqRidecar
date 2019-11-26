@@ -1,5 +1,6 @@
 package com.example.roq
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -15,7 +16,8 @@ import kotlinx.android.synthetic.main.activity_main_registro.edtnip
 import org.json.JSONObject
 
 class MainRegistro : AppCompatActivity() {
-    val wsInsertar = "http://192.168.1.68/Services/InsertarAlumno.php"
+    //Adaptador de LAN inalámbrica Conexión de área local* 2 se conecta con ese
+    val wsInsertar = "http://192.168.137.1/Services/InsertarAlumno.php"
 
     var control:String=""
     var nombre:String=""
@@ -44,12 +46,11 @@ class MainRegistro : AppCompatActivity() {
                         "'$semestre')"
             )
             if (tupla == 1) {
-                Toast.makeText(this, "Usuario Registrado", Toast.LENGTH_SHORT).show()
+
                 clearFields()
             } else {
-                Toast.makeText(this, "El numero de control ya esta registrado", Toast.LENGTH_SHORT).show()
-            }
 
+            }
             val control = edtcontrolreg.text!!.toString()
             val nom = edtnombrereg.text!!.toString()
             val corr=edtcorreoreg.text!!.toString()
@@ -68,13 +69,11 @@ class MainRegistro : AppCompatActivity() {
 
             sendRequest(wsInsertar,jsonEntrada)
 
-            clearFields()
+            startActivity(Intent(this,MainActivity::class.java))
         } else {
             Toast.makeText(this, "No puedes dejar ningún campo de texto vacio", Toast.LENGTH_SHORT).show()
         }
     }
-
-
 
     fun getValues(){
         control=edtcontrolreg.text.toString()
