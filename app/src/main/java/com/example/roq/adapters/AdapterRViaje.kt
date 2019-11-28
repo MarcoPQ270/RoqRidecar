@@ -14,6 +14,7 @@ import com.example.roq.MainActivityPerfil
 import com.example.roq.R
 import com.example.roq.dataclass.Estudiantes
 import com.example.roq.dataclass.ModelCviaje
+import kotlinx.android.synthetic.main.recycler_item.view.*
 import kotlinx.android.synthetic.main.recycler_item_cviaje.view.*
 
 class AdapterRViaje (private var mListaCviaje:List<ModelCviaje>, private val mContext:Context, private val clickListener:(ModelCviaje)-> Unit):
@@ -39,18 +40,12 @@ class AdapterRViaje (private var mListaCviaje:List<ModelCviaje>, private val mCo
     class estvijviewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(viaje: ModelCviaje, context: Context, clickListener: (ModelCviaje) -> Unit) {
 
-
-            itemView.item_destinochof.text = viaje.municip.toString()
-            itemView.item_horasalchof.text=viaje.hors.toString()
-            itemView.item_nocontrolchof.text=viaje.nocont.toString()
-            itemView.nombrechof.text=viaje.nomc.toString()
-            itemView.item_nota.text=viaje.note.toString()
-
-            itemView.setOnClickListener {
-                clickListener(viaje)
-                var intent = Intent(context, MainActivityPerfil::class.java)
-                context.startActivity(intent)
-            }
+            itemView.tvDestino.text = viaje.municip.toString()
+            itemView.tvsalida.text=viaje.hors.toString()
+            itemView.tvControl.text=viaje.nocont.toString()
+            itemView.tvnombre.text=viaje.nomc.toString()
+            itemView.tvnota.text=viaje.note.toString()
+            itemView.setOnClickListener{clickListener(viaje)}
         }
     }
 }

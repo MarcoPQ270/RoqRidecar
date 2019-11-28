@@ -29,6 +29,14 @@ class adBD (context: Context): SQLiteOpenHelper(context,DATABASE,null,1) {
                     "nocontrol text," +
                     "nomest text)"
         )
+        db?.execSQL(
+            "Create Table peticion(" +
+                    "nocontrol text PRIMARY KEY, " +
+                    "nombre text, " +
+                    "carrera text, " +
+                    "semestre text, " +
+                    "controlchofer text)"
+        )
     }
     override fun onUpgrade(db: SQLiteDatabase?, p1: Int, p2: Int) {
 

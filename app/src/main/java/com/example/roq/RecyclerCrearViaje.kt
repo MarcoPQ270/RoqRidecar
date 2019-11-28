@@ -60,6 +60,7 @@ class RecyclerCrearViaje : AppCompatActivity() {
     // Evento clic cuando damos clic en un elemento del Recyclerview
     private fun onItemClickListener(viaje: ModelCviaje) {
         Toast.makeText(this, "Clicked item" + viaje.nomc, Toast.LENGTH_LONG).show()
+
     }
     override fun onResume() {
         super.onResume()

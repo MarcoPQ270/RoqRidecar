@@ -17,7 +17,7 @@ import org.json.JSONObject
 
 class MainRegistro : AppCompatActivity() {
     //Adaptador de LAN inalámbrica Conexión de área local* 2 se conecta con ese
-    val wsInsertar = "http://192.168.137.1/Services/InsertarAlumno.php"
+    val wsInsertar = "https://servicesroqride.webcindario.com/Services/InsertarAlumno.php"
 
     var control:String=""
     var nombre:String=""
@@ -51,23 +51,6 @@ class MainRegistro : AppCompatActivity() {
             } else {
 
             }
-            val control = edtcontrolreg.text!!.toString()
-            val nom = edtnombrereg.text!!.toString()
-            val corr=edtcorreoreg.text!!.toString()
-            val carrera=edtcarrerareg.text!!.toString()
-            val nip=edtnipregis.text!!.toString()
-            val sem =edtsemestrereg.text!!.toString()
-
-            var jsonEntrada= JSONObject()
-
-            jsonEntrada.put("nocontrol", control)
-            jsonEntrada.put("nomest", nom)
-            jsonEntrada.put("correo",corr)
-            jsonEntrada.put("carrera",carrera)
-            jsonEntrada.put("nip",nip)
-            jsonEntrada.put("semestre", sem)
-
-            sendRequest(wsInsertar,jsonEntrada)
 
             startActivity(Intent(this,MainActivity::class.java))
         } else {
@@ -83,6 +66,17 @@ class MainRegistro : AppCompatActivity() {
         nip=edtnipregis.text.toString()
         confirmanip=edtnipconfirma.text.toString()
         semestre=edtsemestrereg.text.toString()
+
+        var jsonEntrada= JSONObject()
+
+        jsonEntrada.put("nocontrol", control)
+        jsonEntrada.put("nomest", nombre)
+        jsonEntrada.put("correo",correo)
+        jsonEntrada.put("carrera",carrera)
+        jsonEntrada.put("nip",nip)
+        jsonEntrada.put("semestre", semestre)
+
+        sendRequest(wsInsertar,jsonEntrada)
     }
     fun clearFields(){
         control=""

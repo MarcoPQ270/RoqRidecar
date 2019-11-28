@@ -3,46 +3,42 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.roq.R
 import com.example.roq.dataclass.Estdetalle
-import com.example.roq.dataclass.Estudiantes
+import kotlinx.android.synthetic.main.recycler_item_detalleviaje.view.*
 
-class Adapterdetalleviaje internal constructor(context: Context):
-RecyclerView.Adapter<Adapterdetalleviaje.estdetalleviewholder>(){
-    private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var ListaEstdetalle= emptyList<Estdetalle>()
-
-    fun setDataToList(lista:List<Estdetalle>){
-        this.ListaEstdetalle=lista
-        notifyDataSetChanged()
-    }
+class Adapterdetalleviaje(private var mListadetalle:List<Estdetalle>, private val mContext:Context, private val clickListener:(Estdetalle)->Unit ):
+RecyclerView.Adapter<Adapterdetalleviaje.estdetalleviewholder>()
+{
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): estdetalleviewholder {
-       val itemview=inflater.inflate(R.layout.recycler_item_detalleviaje,parent, false)
-        return estdetalleviewholder(itemview)
-    }
-    override fun getItemCount(): Int {
-        return ListaEstdetalle.size
+        val layoutInflater = LayoutInflater.from(mContext)
+        return estdetalleviewholder(layoutInflater.inflate(R.layout.recycler_item_detalleviaje, parent, false))
     }
     override fun onBindViewHolder(holder: estdetalleviewholder, position: Int) {
-         holder.nombre.text=ListaEstdetalle.get(position).nombree+""
-         holder.nocontrol.text=ListaEstdetalle.get(position).nocon+""
-         holder.carrera.text=ListaEstdetalle.get(position).carr+""
-         holder.semestre.text=ListaEstdetalle.get(position).semes+""
+        holder.bind(mListadetalle[position], mContext, clickListener)
 
+}
+    override fun getItemCount(): Int =mListadetalle.size
+
+    fun setTask(Estdetalle: List<Estdetalle>) {
+        mListadetalle = Estdetalle
+        notifyDataSetChanged()
     }
-    inner class estdetalleviewholder(itemview: View):RecyclerView.ViewHolder(itemview) {
-        val card = itemview.findViewById<ConstraintLayout>(R.id.itemCarddetalle)
-        val nombre = itemview.findViewById<TextView>(R.id.item_nombredetalleest)
-        val nocontrol=itemview.findViewById<TextView>(R.id.item_nocontroldetalle)
-        val carrera=itemview.findViewById<TextView>(R.id.item_carreradetalle)
-        val semestre=itemview.findViewById<TextView>(R.id.item_semestredetalle)
-        val btnrechazar=itemview.findViewById<Button>(R.id.btnrechazarpas)
-        val brnaceptar=itemview.findViewById<Button>(R.id.btnaceptarpas)
+    fun getTasks(): List<Estdetalle> = mListadetalle
+
+
+    class estdetalleviewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(detalle:Estdetalle, context: Context, clickListener: (Estdetalle) -> Unit) {
+
+            itemView.nombreestudiante.text = detalle.nombree.toString()
+            itemView.nocontrolestudiante.text=detalle.nocon.toString()
+            itemView.carreraestudiante.text=detalle.carr.toString()
+            itemView.semestreestudiante.text=detalle.semes.toString()
+          //  itemView.item_nota.text=detalle.note.toString()
+            itemView.setOnClickListener{clickListener(detalle)}
+
+        }
     }
 }
