@@ -17,7 +17,7 @@ import org.json.JSONObject
 
 class MainRegistro : AppCompatActivity() {
     //Adaptador de LAN inalámbrica Conexión de área local* 2 se conecta con ese
-    val wsInsertar = "https://servicesroqride.webcindario.com/Services/InsertarAlumno.php"
+    val wsInsertar = address.ip+"Services/InsertarAlumno.php"
 
     var control:String=""
     var nombre:String=""

@@ -37,11 +37,11 @@ class Activitycrearviaje : AppCompatActivity() {
             val database = adBD(this)
             val tupla = database.Ejecuta(
                 "INSERT INTO viajes(destino,horas,nota,nocontrol,nomest) VALUES(" +
-                        "'$des'," +
-                        "'$horas'," +
-                        "'$nota'," +
-                        "'$control'," +
-                        "'$nombre')"
+            "'$des'," +
+                    "'$horas'," +
+                    "'$nota'," +
+                    "'$control'," +
+                    "'$nombre')"
             )
             if (tupla == 1) {
                 limpiarCajas()

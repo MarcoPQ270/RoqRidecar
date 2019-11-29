@@ -43,13 +43,14 @@ class AdapterCviaje(private var mListaCviaje:List<ModelCviaje>, private val mCon
             itemView.item_nocontrolchof.text=viaje.nocont.toString()
             itemView.nombrechof.text=viaje.nomc.toString()
             itemView.item_nota.text=viaje.note.toString()
+            itemView.setOnClickListener{clickListener(viaje)}
 
 
-            itemView.setOnClickListener {
+           /* itemView.setOnClickListener {
                 clickListener(viaje)
                 var intent = Intent(context, ActivityDetallevieje::class.java)
                 context.startActivity(intent)
-            }
+            }*/
         }
     }
 }

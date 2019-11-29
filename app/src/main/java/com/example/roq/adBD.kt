@@ -22,7 +22,7 @@ class adBD (context: Context): SQLiteOpenHelper(context,DATABASE,null,1) {
                 )
         db?.execSQL(
             "Create Table viajes(" +
-                    "iddestino INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "iddestino INTEGER PRIMARY KEY, " +
                     "destino text, " +
                     "horas text, " +
                     "nota text, " +
