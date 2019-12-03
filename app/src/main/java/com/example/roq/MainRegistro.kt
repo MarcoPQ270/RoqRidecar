@@ -35,30 +35,35 @@ class MainRegistro : AppCompatActivity() {
         if (!edtcontrolreg.text!!.isEmpty() && !edtnombrereg.text!!.isEmpty() && !edtcorreoreg.text!!.isEmpty() && !edtnipregis!!.text!!.isEmpty()
             && !edtnipconfirma!!.text!!.isEmpty() && !edtsemestrereg!!.text!!.isEmpty()) {
             getValues()
-            val database = adBD(this)
-            val tupla = database.Ejecuta(
-                "INSERT INTO usuarios(nocontrol,nomest,correo,nip,carrera,semestre) VALUES(" +
-                        "'$control'," +
-                        "'$nombre'," +
-                        "'$correo'," +
-                        "'$nip'," +
-                        "'$carrera'," +
-                        "'$semestre')"
-            )
-            if (tupla == 1) {
 
-                clearFields()
-            } else {
+          //  val database = adBD(this)
+           // val tupla = database.Ejecuta(
+             //   "INSERT INTO usuarios(nocontrol,nomest,correo,nip,carrera,semestre) VALUES(" +
+               //         "'$control'," +
+                 //       "'$nombre'," +
+                   //     "'$correo'," +
+                    //    "'$nip'," +
+                      //  "'$carrera'," +
+                       // "'$semestre')"
+         //   )
+           // if (tupla == 1) {
 
-            }
+             //   clearFields()
+            //} else {
 
-            startActivity(Intent(this,MainActivity::class.java))
+            //}
+
+            startActivity(Intent(this,ActivityLogin::class.java))
+
+            clearFields()
         } else {
             Toast.makeText(this, "No puedes dejar ningún campo de texto vacio", Toast.LENGTH_SHORT).show()
         }
     }
 
     fun getValues(){
+        if (nip==confirmanip){
+
         control=edtcontrolreg.text.toString()
         nombre=edtnombrereg.text.toString()
         carrera=edtcarrerareg.text.toString()
@@ -77,6 +82,9 @@ class MainRegistro : AppCompatActivity() {
         jsonEntrada.put("semestre", semestre)
 
         sendRequest(wsInsertar,jsonEntrada)
+        }else{
+            Toast.makeText(this,"El nip no coincide",Toast.LENGTH_SHORT).show()
+        }
     }
     fun clearFields(){
         control=""
@@ -95,6 +103,7 @@ class MainRegistro : AppCompatActivity() {
         edtsemestrereg.setText("")
         edtcontrolreg.requestFocus()
     }
+
 
     fun sendRequest(wsUrl:String,jsonEntrada: JSONObject){
 
